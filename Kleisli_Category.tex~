@@ -1,0 +1,56 @@
+% Created 2018-08-07 Di. 15:11
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{fixltx2e}
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{float}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{textcomp}
+\usepackage{marvosym}
+\usepackage{wasysym}
+\usepackage{amssymb}
+\usepackage{hyperref}
+\tolerance=1000
+\usepackage{ngerman}
+\author{Richard Stewing}
+\date{07.08.2018}
+\title{Beispiel Kleisli Kategorie}
+\hypersetup{
+  pdfkeywords={},
+  pdfsubject={},
+  pdfcreator={Emacs 25.3.1 (Org mode 8.2.10)}}
+\begin{document}
+
+\maketitle
+
+\section{Definition Kleisli}
+\label{sec-1}
+
+Sei $\mathcal{C}$ eine Kategorie und $M=(T, \mu, \eta)$ eine Monade. 
+Mit $T: \mathcal{C} \to \mathcal{C}$ als Endofunktor und 
+$\mu: T(T(A)) \to T(A)$ und $\eta: A \to T(A)$ die \href{https://de.wikipedia.org/wiki/Monoid}{Monoid}-Operationen.
+Dann ist die Kleisli-Kategorie $\mathcal{C}_M$ definiert mit:
+\begin{itemize}
+\item $Obj(\mathcal{C}_M) = Obj(\mathcal{C}_M)$
+\item $Mor_{\mathcal{C}_M}(X,Y) = Mor_{\mathcal{C}}(X, T(Y))$
+\end{itemize}
+und 
+\begin{itemize}
+\item $id_A = \eta_A$
+\item $f \circ_{\mathcal{C}_M} g = \mu \circ_{\mathcal{C}} T(f) \circ_{\mathcal{C}} g$
+\end{itemize}
+
+\section{Beispiel mit der Listen-Monad $\_^*$}
+\label{sec-2}
+\begin{itemize}
+\item Sei $A$ eine Menge, $A^*$ ist die Menge aller W"orter "uber $A$
+\item Sei $f:A \to B$, dann ist $f^*([a_0,\dots]) = [f(a_0),\dots] \in B^*$ (wie das Haskell \emph{map})
+\item $\eta:A \to A^*, \eta(a) = [a]$
+\end{itemize}
+% Emacs 25.3.1 (Org mode 8.2.10)
+\end{document}

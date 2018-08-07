@@ -14,3 +14,9 @@ Dann ist die Kleisli-Kategorie $\mathcal{C}_M$ definiert mit:
 und 
 - $id_A = \eta_A$
 - $f \circ_{\mathcal{C}_M} g = \mu \circ_{\mathcal{C}} T(f) \circ_{\mathcal{C}} g$
+
+* Beispiel mit der Listen-Monad $\_^*$
+- Sei $A$ eine Menge, $A^*$ ist die Menge aller W"orter "uber $A$
+- Sei $f:A \to B$, dann ist $f^*([a_0,\dots]) = [f(a_0),\dots] \in B^*$ (wie das Haskell /map/)
+- $\eta:A \to A^*, \eta(a) = [a]$
+- $\mu: A^{**} \to A^*, \mu = concat$

@@ -9,7 +9,7 @@ Sei $\mathcal{C}$ eine Kategorie und $M=(T, \mu, \eta)$ eine Monade.
 Mit $T: \mathcal{C} \to \mathcal{C}$ als Endofunktor und 
 $\mu: T(T(A)) \to T(A)$ und $\eta: A \to T(A)$ die [[https://de.wikipedia.org/wiki/Monoid][Monoid]]-Operationen.
 Dann ist die Kleisli-Kategorie $\mathcal{C}_M$ definiert mit:
-- $Obj(\mathcal{C}_M) = Obj(\mathcal{C}_M)$
+- $Obj(\mathcal{C}_M) = Obj(\mathcal{C})$
 - $Mor_{\mathcal{C}_M}(X,Y) = Mor_{\mathcal{C}}(X, T(Y))$
 und 
 - $id_A = \eta_A$
@@ -20,3 +20,15 @@ und
 - Sei $f:A \to B$, dann ist $f^*([a_0,\dots]) = [f(a_0),\dots] \in B^*$ (wie das Haskell /map/)
 - $\eta:A \to A^*, \eta(a) = [a]$
 - $\mu: A^{**} \to A^*, \mu = concat$
+
+** Kleisli-Kategorie zur Listen-Monad
+
+- $Obj(\mathcal{S}_{List}) = Obj(\mathcal{S}) (= Alle\ Mengen)$
+- $id_A = \eta_A$
+- Seien $A,B,C$ beliebig $\in \mathcal{S}$
+- $g: A \to B^*$
+- $f: B \to C^*$
+- $f^*: B^* \to C^{**}$
+- $f \circ_{\mathcal{S}_{List}} g = concat \circ_{\mathcal{S}} f^* \circ_{\mathcal{S}} g$
+- Sei $a \in A$
+- $(f \circ_{\mathcal{S}_{List}} g)(a) = cancat (f^*(g(a)))$

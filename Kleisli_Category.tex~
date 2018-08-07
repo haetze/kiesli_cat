@@ -1,4 +1,4 @@
-% Created 2018-08-07 Di. 15:11
+% Created 2018-08-07 Di. 15:37
 \documentclass[11pt]{article}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
@@ -36,7 +36,7 @@ Mit $T: \mathcal{C} \to \mathcal{C}$ als Endofunktor und
 $\mu: T(T(A)) \to T(A)$ und $\eta: A \to T(A)$ die \href{https://de.wikipedia.org/wiki/Monoid}{Monoid}-Operationen.
 Dann ist die Kleisli-Kategorie $\mathcal{C}_M$ definiert mit:
 \begin{itemize}
-\item $Obj(\mathcal{C}_M) = Obj(\mathcal{C}_M)$
+\item $Obj(\mathcal{C}_M) = Obj(\mathcal{C})$
 \item $Mor_{\mathcal{C}_M}(X,Y) = Mor_{\mathcal{C}}(X, T(Y))$
 \end{itemize}
 und 
@@ -51,6 +51,22 @@ und
 \item Sei $A$ eine Menge, $A^*$ ist die Menge aller W"orter "uber $A$
 \item Sei $f:A \to B$, dann ist $f^*([a_0,\dots]) = [f(a_0),\dots] \in B^*$ (wie das Haskell \emph{map})
 \item $\eta:A \to A^*, \eta(a) = [a]$
+\item $\mu: A^{**} \to A^*, \mu = concat$
+\end{itemize}
+
+\subsection{Kleisli-Kategorie zur Listen-Monad}
+\label{sec-2-1}
+
+\begin{itemize}
+\item $Obj(\mathcal{S}_{List}) = Obj(\mathcal{S}) (= Alle\ Mengen)$
+\item $id_A = \eta_A$
+\item Seien $A,B,C$ beliebig $\in \mathcal{S}$
+\item $g: A \to B^*$
+\item $f: B \to C^*$
+\item $f^*: B^* \to C^{**}$
+\item $f \circ_{\mathcal{S}_{List}} g = concat \circ_{\mathcal{S}} f^* \circ_{\mathcal{S}} g$
+\item Sei $a \in A$
+\item $f \circ_{\mathcal{S}_{List}} g = cancat (f^*(g(a)))$
 \end{itemize}
 % Emacs 25.3.1 (Org mode 8.2.10)
 \end{document}

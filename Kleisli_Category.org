@@ -4,3 +4,13 @@
 #+OPTIONS: toc:nil
 
 * Definition Kleisli
+
+Sei $\mathcal{C}$ eine Kategorie und $M=(T, \mu, \eta)$ eine Monade. 
+Mit $T: \mathcal{C} \to \mathcal{C}$ als Endofunktor und 
+$\mu: T(T(A)) \to T(A)$ und $\eta: A \to T(A)$ die [[https://de.wikipedia.org/wiki/Monoid][Monoid]]-Operationen.
+Dann ist die Kleisli-Kategorie $\mathcal{C}_M$ definiert mit:
+- $Obj(\mathcal{C}_M) = Obj(\mathcal{C}_M)$
+- $Mor_{\mathcal{C}_M}(X,Y) = Mor_{\mathcal{C}}(X, T(Y))$
+und 
+- $id_A = \eta_A$
+- $f \circ_{\mathcal{C}_M} g = \mu \circ_{\mathcal{C}} T(f) \circ_{\mathcal{C}} g$

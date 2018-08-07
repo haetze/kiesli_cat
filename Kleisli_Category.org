@@ -1,0 +1,6 @@
+#+TITLE: Beispiel Kleisli Kategorie
+#+DATE: 07.08.2018
+#+LATEX_HEADER: \usepackage{ngerman}
+#+OPTIONS: toc:nil
+
+* Definition Kleisli
